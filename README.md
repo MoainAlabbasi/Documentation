@@ -16,6 +16,7 @@
 | **توزيع المهام** | مسؤوليات أعضاء الفريق | [Team_Roles.md](./Plans/Team_Roles.md) |
 | **دليل المبرمجين** | دليل الفريق الأول (Step-by-Step) | [Team1_Developers_Guide.md](./Plans/Team1_Developers_Guide.md) |
 | **دليل الجودة** | دليل الفريق الثاني (Step-by-Step) | [Team2_QADoc_Guide.md](./Plans/Team2_QADoc_Guide.md) |
+| **حالة المشروع** | سجل يوضح ما تم إنجازه والقرارات | [Current_Status.md](./Project_State/Current_Status.md) |
 
 ---
 

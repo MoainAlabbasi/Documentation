@@ -12,10 +12,12 @@ Documentation/
 ├── README.md                          # هذا الملف
 ├── Analysis.md                        # التحليل الشامل للمشروع
 ├── _الفصول_الاربعه_مشروع_...pdf       # وثيقة المشروع الأصلية
-└── Plans/                             # 📂 مجلد خطط التنفيذ
+└── Plans/                             # 📂 مجلد خطط التنفيذ والأدلة
     ├── Project_Roadmap.md             # المسار الكامل للمشروع
     ├── 15_Day_Plan.md                 # خطة الـ 15 يوم المفصلة
-    └── Team_Roles.md                  # توزيع المهام على الفريق
+    ├── Team_Roles.md                  # توزيع المهام على الفريق
+    ├── Team1_Developers_Guide.md      # دليل المبرمجين (Step-by-Step)
+    └── Team2_QADoc_Guide.md           # دليل الجودة والتوثيق (Step-by-Step)
 ```
 
 ---
@@ -29,13 +31,15 @@ Documentation/
 
 ---
 
-## 📂 مجلد الخطط (Plans/)
+## 📂 مجلد الخطط والأدلة (Plans/)
 
 | الملف | الوصف | الرابط |
 |-------|-------|--------|
 | **Project_Roadmap.md** | المسار الكامل للمشروع من الصفر إلى التشغيل | [عرض](./Plans/Project_Roadmap.md) |
 | **15_Day_Plan.md** | خطة تنفيذية مفصلة لـ 15 يوم (يوم بيوم) | [عرض](./Plans/15_Day_Plan.md) |
 | **Team_Roles.md** | توزيع المهام والمسؤوليات على أعضاء الفريق | [عرض](./Plans/Team_Roles.md) |
+| **Team1_Developers_Guide.md** | **دليل المبرمجين التفصيلي (Step-by-Step)** | [عرض](./Plans/Team1_Developers_Guide.md) |
+| **Team2_QADoc_Guide.md** | **دليل الجودة والتوثيق التفصيلي (Step-by-Step)** | [عرض](./Plans/Team2_QADoc_Guide.md) |
 
 ---
 
@@ -75,4 +79,5 @@ Documentation/
 | **Backend** | Python (Django Framework) |
 | **Database** | PostgreSQL |
 | **Frontend** | Django Templates + Bootstrap 5 + HTMX |
-| **AI** | OpenAI API / Gemini API |
+| **AI** | Google Gemini API |
+| **Environment** | Docker & Docker Compose |

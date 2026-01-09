@@ -51,6 +51,18 @@
 
 ---
 
+## 🤖 تعليمات خاصة لمتابعة الإنجاز (AI Instructions)
+عند التعامل مع هذا المشروع، يجب على أي ذكاء اصطناعي الالتزام بالقواعد التالية لضمان استمرارية العمل:
+1.  **اللغة:** التواصل والتوثيق باللغة العربية بشكل أساسي، والكود بالإنجليزية.
+2.  **التقنيات:** الالتزام بـ Django 6.0.1، PostgreSQL، و Bootstrap 5.
+3.  **بدون Docker:** لا تستخدم Docker أو Docker Compose؛ الاعتماد كلياً على البيئة الافتراضية (venv).
+4.  **تتبع الإنجاز:** قبل البدء بأي مهمة، راجع ملف `Progress/TODO.md` و `Progress/MILESTONES.md`.
+5.  **التوثيق:** أي تغيير في الكود يجب أن يتبعه تحديث في سجل التغييرات `AI_Memory/CHANGELOG.md`.
+6.  **المشاكل:** أي مشكلة تواجهها وحلها يجب توثيقه في `Troubleshooting/PROBLEMS_AND_SOLUTIONS.md`.
+7.  **خطة العمل:** اتبع دائماً الخطة التفصيلية الموجودة في `Plans/DETAILED_DEV_PLAN.md`.
+
+---
+
 ## 🛠️ القرارات التقنية المعتمدة
 
 | الجانب | القرار | السبب |
@@ -64,13 +76,11 @@
 | **استراتيجية الفروع** | GitFlow (main, develop, feature/*) | تنظيم العمل ومنع التعارضات |
 | **نظام التشغيل** | Windows (جميع الفريق) | - |
 
-> **📍 للتفاصيل الكاملة:** راجع ملف [Architecture/DECISIONS.md](Architecture/DECISIONS.md)
-
 ---
 
 ## 📁 هيكل المستودعات
 
-### مستودع التوثيق (Documentation) - هذا المستودع
+### مستودع التوثيق (Documentation)
 ```
 Documentation/
 ├── AI_CONTEXT.md          ← 🤖 أنت هنا - ابدأ من هنا دائماً
@@ -99,79 +109,13 @@ Documentation/
 │
 ├── Analysis/              ← تحليل المشروع
 ├── Plans/                 ← خطط التنفيذ
+│   ├── GITHUB_TASKS.md    ← قائمة المهام لـ GitHub Projects
+│   └── DETAILED_DEV_PLAN.md← الخطة التفصيلية للمبرمجين
+│
 ├── Original_Docs/         ← الوثائق الأصلية
 ├── Templates/             ← قوالب جاهزة
 └── Deliverables/          ← المخرجات النهائية
 ```
-
-### مستودع الكود (S_ACM_V1) - تم إنشاؤه ✅
-```
-S_ACM_V1/
-├── .env                   ← متغيرات البيئة (كلمات السر، المفاتيح)
-├── .gitignore             ← الملفات المستثناة من Git
-├── manage.py              ← أداة إدارة Django
-├── requirements.txt       ← المكتبات المطلوبة
-└── sacm_project/          ← مجلد المشروع الرئيسي
-    ├── __init__.py
-    ├── asgi.py
-    ├── settings.py        ← إعدادات المشروع
-    ├── urls.py            ← مسارات URLs
-    └── wsgi.py
-```
-
-**🔗 رابط المستودع:** https://github.com/MoainAlabbasi/S_ACM_V1
-
----
-
-## ⚙️ المتغيرات والإعدادات
-
-### متغيرات البيئة (محفوظة في `.env` في مستودع الكود)
-```env
-# قاعدة البيانات
-DB_NAME=sacm_db
-DB_USER=postgres
-DB_PASSWORD=<كلمة السر>
-DB_HOST=localhost
-DB_PORT=5432
-
-# Django
-SECRET_KEY=<مفتاح سري>
-DEBUG=True
-
-# الذكاء الاصطناعي (سيُضاف لاحقاً)
-GEMINI_API_KEY=<سيُحدد لاحقاً>
-```
-
----
-
-## 📞 معلومات التواصل
-
-- **صاحب المشروع:** معين العباسي
-- **حساب GitHub:** MoainAlabbasi
-- **مستودع التوثيق:** https://github.com/MoainAlabbasi/Documentation
-- **مستودع الكود:** https://github.com/MoainAlabbasi/S_ACM_V1
-
----
-
-## 🤖 تعليمات للوكيل
-
-### عند بدء أي جلسة عمل:
-1. ✅ اقرأ هذا الملف بالكامل
-2. ✅ راجع [Progress/TODO.md](Progress/TODO.md) لمعرفة المهام
-3. ✅ راجع [AI_Memory/CHANGELOG.md](AI_Memory/CHANGELOG.md) لمعرفة آخر التحديثات
-4. ✅ اسأل المستخدم عن المهمة المطلوبة
-
-### عند إنهاء أي جلسة عمل:
-1. ✅ وثّق ما تم إنجازه
-2. ✅ حدّث قائمة المهام إذا لزم الأمر
-3. ✅ أبلغ المستخدم بالتحديثات المطلوبة على المستودع
-
-### قواعد مهمة:
-- ❌ لا تتخذ قرارات تقنية جديدة بدون الرجوع لـ [Architecture/DECISIONS.md](Architecture/DECISIONS.md)
-- ❌ لا تغير الهيكل المتفق عليه بدون موافقة المستخدم
-- ✅ التزم بمعايير الكود في [Guides/CODING_STANDARDS.md](Guides/CODING_STANDARDS.md)
-- ✅ استخدم اللغة العربية في التوثيق، والإنجليزية في أسماء الملفات والكود
-- ✅ وثّق أي مشاكل تواجهها في [Troubleshooting/PROBLEMS_AND_SOLUTIONS.md](Troubleshooting/PROBLEMS_AND_SOLUTIONS.md)
 
 ---
 
@@ -179,4 +123,4 @@ GEMINI_API_KEY=<سيُحدد لاحقاً>
 
 **التاريخ:** 2026-01-09
 **بواسطة:** Manus AI
-**التغييرات:** تحديث الحالة بعد إكمال المرحلة 0، إضافة رابط مستودع الكود، إضافة مجلد Troubleshooting
+**التغييرات:** إضافة تعليمات تتبع الإنجاز للذكاء الاصطناعي، تحديث هيكل الملفات بإضافة خطط العمل الجديدة.

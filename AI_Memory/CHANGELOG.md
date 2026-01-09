@@ -4,6 +4,27 @@
 
 ---
 
+## [v0.2.0] - 2026-01-09
+
+### 🔄 Changed (التغييرات)
+- **إلغاء استخدام Docker:** تم إزالة جميع الإشارات إلى Docker و Docker Compose من ملفات التوثيق بناءً على قرار المستخدم.
+- **تحديث بيئة التطوير:** استبدال Docker ببيئة Python الافتراضية (venv) كبيئة تطوير رئيسية.
+- **تحديث الملفات التالية:**
+  - `AI_CONTEXT.md` - تحديث القرارات التقنية وهيكل المشروع
+  - `README.md` - تحديث قسم التقنيات
+  - `Architecture/TECH_STACK.md` - إزالة Docker وإضافة venv
+  - `Architecture/DECISIONS.md` - تحديث قرار بيئة التطوير
+  - `Progress/TODO.md` - تحديث مهام الإعداد
+  - `Progress/MILESTONES.md` - تحديث مخرجات المرحلة 0
+  - `Project_State/Current_Status.md` - تحديث القرارات التقنية
+  - `Project_State/Knowledge_Base.md` - تحديث القرارات التقنية
+  - `Plans/Project_Roadmap.md` - إزالة إشارة Docker من مرحلة النشر
+
+### 🗑️ Removed (المحذوف)
+- ملف `Plans/Team1_Developers_Guide_v2.md` (كان يحتوي على تعليمات Docker بشكل مكثف)
+
+---
+
 ## [v0.1.0] - 2026-01-09
 
 ### ✨ Added (الجديد)

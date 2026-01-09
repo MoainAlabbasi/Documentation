@@ -128,7 +128,7 @@ Documentation/
 | **Database** | PostgreSQL |
 | **AI** | Google Gemini API |
 | **Frontend** | Bootstrap 5 + HTMX |
-| **DevOps** | Docker + Docker Compose |
+| **DevOps** | Git + GitHub |
 
 ---
 

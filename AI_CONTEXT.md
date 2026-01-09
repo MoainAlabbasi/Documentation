@@ -24,10 +24,10 @@
 
 | البند | الحالة |
 |:---|:---|
-| **المرحلة الحالية** | ما قبل التنفيذ - التخطيط مكتمل |
+| **المرحلة الحالية** | المرحلة 1 - بناء الأساس |
 | **آخر تحديث** | 2026-01-09 |
-| **نسبة الإنجاز الكلية** | 10% (التحليل والتخطيط) |
-| **الخطوة التالية** | إعداد بيئة التطوير (Python + Django) |
+| **نسبة الإنجاز الكلية** | 15% |
+| **الخطوة التالية** | بناء نماذج البيانات (Django Models) |
 
 ### ✅ ما تم إنجازه:
 - [x] تحليل وثيقة المشروع الأصلية (85 صفحة)
@@ -35,14 +35,17 @@
 - [x] توزيع المهام على الفريق
 - [x] إعداد أدلة العمل التفصيلية
 - [x] تنظيم مستودع التوثيق
+- [x] **المرحلة 0 مكتملة:** إعداد بيئة التطوير وإنشاء مشروع Django
 
 ### ⏳ قيد التنفيذ:
-- [ ] إعداد بيئة التطوير (Python, Django, PostgreSQL)
+- [ ] بناء نماذج البيانات (Django Models)
+- [ ] إعداد لوحة تحكم المدير (Admin Panel)
+- [ ] بناء نظام المصادقة
 
 ### 📋 المهام القادمة:
-- [ ] إنشاء مشروع Django
-- [ ] بناء نماذج البيانات
-- [ ] تطوير نظام المصادقة
+- [ ] نظام الصلاحيات (RBAC)
+- [ ] إدارة المحتوى (رفع/تنزيل الملفات)
+- [ ] دمج الذكاء الاصطناعي
 
 > **📍 للتفاصيل الكاملة:** راجع ملف [Progress/TODO.md](Progress/TODO.md)
 
@@ -52,7 +55,7 @@
 
 | الجانب | القرار | السبب |
 |:---|:---|:---|
-| **إطار العمل** | Django 5.x | إطار عمل Python قوي وموثوق |
+| **إطار العمل** | Django 6.0.1 | إطار عمل Python قوي وموثوق |
 | **قاعدة البيانات** | PostgreSQL | قاعدة بيانات علائقية مناسبة للإنتاج |
 | **بيئة التطوير** | Python Virtual Environment | بيئة افتراضية بسيطة ومباشرة |
 | **الذكاء الاصطناعي** | Google Gemini API | API متقدم ومتاح |
@@ -91,6 +94,9 @@ Documentation/
 │   ├── GIT_WORKFLOW.md    ← دليل استخدام Git
 │   └── CODING_STANDARDS.md← معايير كتابة الكود
 │
+├── Troubleshooting/       ← المشاكل والحلول
+│   └── PROBLEMS_AND_SOLUTIONS.md ← سجل المشاكل وحلولها
+│
 ├── Analysis/              ← تحليل المشروع
 ├── Plans/                 ← خطط التنفيذ
 ├── Original_Docs/         ← الوثائق الأصلية
@@ -98,55 +104,43 @@ Documentation/
 └── Deliverables/          ← المخرجات النهائية
 ```
 
-### مستودع الكود (S-ACM-Project) - سيُنشأ لاحقاً
+### مستودع الكود (S_ACM_V1) - تم إنشاؤه ✅
 ```
-S-ACM-Project/
-├── .env.example
-├── requirements.txt
-├── manage.py
-└── acm_project/
-    ├── settings.py
-    └── core/
-        ├── models.py
-        ├── views.py
-        └── templates/
+S_ACM_V1/
+├── .env                   ← متغيرات البيئة (كلمات السر، المفاتيح)
+├── .gitignore             ← الملفات المستثناة من Git
+├── manage.py              ← أداة إدارة Django
+├── requirements.txt       ← المكتبات المطلوبة
+└── sacm_project/          ← مجلد المشروع الرئيسي
+    ├── __init__.py
+    ├── asgi.py
+    ├── settings.py        ← إعدادات المشروع
+    ├── urls.py            ← مسارات URLs
+    └── wsgi.py
 ```
 
----
-
-## 🔗 الملفات المهمة للقراءة
-
-| الملف | الغرض | متى تقرأه |
-|:---|:---|:---|
-| [Analysis/Analysis.md](Analysis/Analysis.md) | تحليل شامل لوثيقة المشروع | لفهم المتطلبات والمخططات |
-| [Plans/15_Day_Plan.md](Plans/15_Day_Plan.md) | خطة التنفيذ التفصيلية | لمعرفة الجدول الزمني |
-| [Plans/Team_Roles.md](Plans/Team_Roles.md) | توزيع المهام | لمعرفة مسؤولية كل شخص |
-| [Guides/SETUP.md](Guides/SETUP.md) | دليل إعداد البيئة | عند بدء التطوير |
-| [Progress/TODO.md](Progress/TODO.md) | قائمة المهام | لمعرفة ما يجب فعله |
-| [Architecture/DECISIONS.md](Architecture/DECISIONS.md) | القرارات التقنية | قبل اتخاذ أي قرار جديد |
+**🔗 رابط المستودع:** https://github.com/MoainAlabbasi/S_ACM_V1
 
 ---
 
 ## ⚙️ المتغيرات والإعدادات
 
-### متغيرات البيئة (ستُحفظ في `.env` في مستودع الكود)
+### متغيرات البيئة (محفوظة في `.env` في مستودع الكود)
 ```env
 # قاعدة البيانات
-DB_NAME=acm_db
-DB_USER=acm_user
-DB_PASSWORD=<سيُحدد لاحقاً>
+DB_NAME=sacm_db
+DB_USER=postgres
+DB_PASSWORD=<كلمة السر>
 DB_HOST=localhost
 DB_PORT=5432
 
 # Django
-SECRET_KEY=<سيُولَّد لاحقاً>
+SECRET_KEY=<مفتاح سري>
 DEBUG=True
 
-# الذكاء الاصطناعي
+# الذكاء الاصطناعي (سيُضاف لاحقاً)
 GEMINI_API_KEY=<سيُحدد لاحقاً>
 ```
-
-> **⚠️ تنبيه:** لا تُخزَّن المفاتيح الحقيقية في المستودع أبداً!
 
 ---
 
@@ -155,7 +149,7 @@ GEMINI_API_KEY=<سيُحدد لاحقاً>
 - **صاحب المشروع:** معين العباسي
 - **حساب GitHub:** MoainAlabbasi
 - **مستودع التوثيق:** https://github.com/MoainAlabbasi/Documentation
-- **مستودع الكود:** https://github.com/MoainAlabbasi/S-ACM-Project (سيُنشأ)
+- **مستودع الكود:** https://github.com/MoainAlabbasi/S_ACM_V1
 
 ---
 
@@ -177,12 +171,12 @@ GEMINI_API_KEY=<سيُحدد لاحقاً>
 - ❌ لا تغير الهيكل المتفق عليه بدون موافقة المستخدم
 - ✅ التزم بمعايير الكود في [Guides/CODING_STANDARDS.md](Guides/CODING_STANDARDS.md)
 - ✅ استخدم اللغة العربية في التوثيق، والإنجليزية في أسماء الملفات والكود
+- ✅ وثّق أي مشاكل تواجهها في [Troubleshooting/PROBLEMS_AND_SOLUTIONS.md](Troubleshooting/PROBLEMS_AND_SOLUTIONS.md)
 
 ---
 
 ## 📅 آخر تحديث لهذا الملف
 
-
 **التاريخ:** 2026-01-09
 **بواسطة:** Manus AI
-**التغييرات:** إزالة إشارات Docker واستبدالها ببيئة Python الافتراضية
+**التغييرات:** تحديث الحالة بعد إكمال المرحلة 0، إضافة رابط مستودع الكود، إضافة مجلد Troubleshooting

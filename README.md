@@ -61,6 +61,9 @@ Documentation/
 │   ├── Team1_Developers_Guide.md  ← دليل المبرمجين
 │   └── Team2_QADoc_Guide.md  ← دليل الجودة والتوثيق
 │
+├── 📁 Troubleshooting/       ← المشاكل والحلول
+│   └── PROBLEMS_AND_SOLUTIONS.md ← سجل المشاكل وحلولها
+│
 ├── 📁 Project_State/         ← حالة المشروع (قديم - للأرشيف)
 │   ├── Current_Status.md     ← الحالة الحالية
 │   └── Knowledge_Base.md     ← قاعدة المعرفة
@@ -116,7 +119,7 @@ Documentation/
 | المستودع | الغرض | الرابط |
 | :--- | :--- | :--- |
 | **Documentation** | التوثيق وذاكرة المشروع | [هذا المستودع](https://github.com/MoainAlabbasi/Documentation) |
-| **S-ACM-Project** | الكود المصدري | (سيُنشأ قريباً) |
+| **S_ACM_V1** | الكود المصدري | [S_ACM_V1](https://github.com/MoainAlabbasi/S_ACM_V1) ✅ |
 
 ---
 
@@ -124,7 +127,7 @@ Documentation/
 
 | الجانب | التقنية |
 | :--- | :--- |
-| **Backend** | Django 5.x |
+| **Backend** | Django 6.0.1 |
 | **Database** | PostgreSQL |
 | **AI** | Google Gemini API |
 | **Frontend** | Bootstrap 5 + HTMX |
@@ -142,4 +145,4 @@ Documentation/
 ## 📅 آخر تحديث
 
 **التاريخ:** 2026-01-09
-**التغييرات:** إعادة هيكلة المستودع وإضافة نظام ذاكرة الذكاء الاصطناعي
+**التغييرات:** إكمال المرحلة 0، إضافة مستودع الكود S_ACM_V1، إضافة مجلد Troubleshooting

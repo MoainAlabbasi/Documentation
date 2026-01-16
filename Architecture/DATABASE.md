@@ -63,7 +63,7 @@ erDiagram
         INT uploader_id FK
         VARCHAR title
         VARCHAR file_url
-        FILE_TYPE file_type "(Lecture, Summary, Exam)"
+        FILE_TYPE file_type "(Lecture, Summary, Exam, Assignment, Reference, Other)"
         BIGINT file_size
         TIMESTAMP upload_date
         BOOLEAN is_visible
@@ -247,7 +247,7 @@ erDiagram
 | `title` | `VARCHAR(255)`| `NOT NULL` | عنوان الملف. |
 | `content_type` | `VARCHAR(20)` | `NOT NULL` | نوع المحتوى (local_file, external_link). |
 | `content_url` | `VARCHAR(512)`| `NOT NULL` | رابط الملف المحلي أو الرابط الخارجي. |
-| `file_type` | `VARCHAR(50)` | `NOT NULL` | نوع الملف (Lecture, Summary, Exam, etc.). |
+| `file_type` | `VARCHAR(50)` | `NOT NULL` | نوع الملف (Lecture, Summary, Exam, Assignment, Reference, Other). |
 | `file_size` | `BIGINT` | - | حجم الملف بالبايت. |
 | `upload_date` | `TIMESTAMP` | `DEFAULT NOW()` | تاريخ ووقت الرفع. |
 | `is_visible` | `BOOLEAN` | `DEFAULT TRUE` | للتحكم في ظهور الملف للطلاب. |

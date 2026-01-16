@@ -13,10 +13,11 @@ erDiagram
     USERS {
         INT user_id PK
         VARCHAR academic_id UK "الرقم الأكاديمي/الوظيفي"
-        VARCHAR full_name
-        VARCHAR email UK
-        VARCHAR password_hash
-        USER_STATUS account_status "(active, inactive, pending)"
+            VARCHAR id_card_number UK "رقم البطاقة الشخصية"
+            VARCHAR full_name
+            VARCHAR email UK
+            VARCHAR password_hash
+            USER_STATUS account_status "(active, inactive)"
         INT role_id FK
         INT major_id FK
         TIMESTAMP created_at
@@ -126,10 +127,11 @@ erDiagram
 | :--- | :--- | :--- | :--- |
 | `user_id` | `SERIAL` | `PRIMARY KEY` | المعرف الفريد للمستخدم. |
 | `academic_id` | `VARCHAR(50)` | `UNIQUE, NOT NULL` | الرقم الأكاديمي للطالب أو الرقم الوظيفي للموظف. |
+| `id_card_number` | `VARCHAR(50)` | `UNIQUE, NOT NULL` | رقم البطاقة الشخصية، يستخدم للتحقق من الهوية عند التفعيل. |
 | `full_name` | `VARCHAR(150)` | `NOT NULL` | الاسم الكامل للمستخدم. |
-| `email` | `VARCHAR(255)` | `UNIQUE, NOT NULL` | البريد الإلكتروني، يستخدم لتسجيل الدخول والتواصل. |
-| `password_hash` | `VARCHAR(255)` | `NOT NULL` | كلمة المرور بعد تشفيرها (Hashed). |
-| `account_status` | `VARCHAR(20)` | `DEFAULT 'pending'` | حالة الحساب (pending, active, inactive). |
+| `email` | `VARCHAR(255)` | `UNIQUE` | البريد الإلكتروني، يصبح `NOT NULL` بعد التفعيل. |
+| `password_hash` | `VARCHAR(255)` | - | كلمة المرور بعد تشفيرها (Hashed)، تصبح `NOT NULL` بعد التفعيل. |
+| `account_status` | `VARCHAR(20)` | `DEFAULT 'inactive'` | حالة الحساب (inactive, active). |
 | `role_id` | `INT` | `FK -> Roles.role_id` | يحدد دور المستخدم في النظام. |
 | `major_id` | `INT` | `FK -> Majors.major_id` | يحدد تخصص الطالب (يمكن أن يكون NULL للمدرسين والمدراء). |
 | `created_at` | `TIMESTAMP` | `DEFAULT NOW()` | تاريخ ووقت إنشاء الحساب. |

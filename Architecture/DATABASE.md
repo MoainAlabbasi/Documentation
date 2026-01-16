@@ -53,7 +53,8 @@ erDiagram
         VARCHAR course_name
         VARCHAR course_code UK
         INT major_id FK
-        INT level_id FK
+                INT level_id FK
+        INT semester_id FK
     }
 
     LECTURES_FILES {
@@ -103,7 +104,18 @@ erDiagram
     PERMISSIONS }o--o{ ROLE_PERMISSIONS : "links to"
     ROLES }o--o{ ROLE_PERMISSIONS : "links to"
     COURSES ||--o{ MAJORS : "belongs to"
-    COURSES ||--o{ LEVELS : "belongs to"
+        COURSES ||--o{ LEVELS : "belongs to"
+    COURSES ||--o{ SEMESTERS : "belongs to"
+
+    SEMESTERS {
+        INT semester_id PK
+        VARCHAR name UK
+        VARCHAR academic_year
+        INT semester_number
+        DATE start_date
+        DATE end_date
+        BOOLEAN is_current
+    }
     LECTURES_FILES ||--o{ COURSES : "belongs to"
     LECTURES_FILES ||--o{ USERS : "uploaded by"
     NOTIFICATIONS ||--o{ USERS : "sent by"
@@ -165,7 +177,19 @@ erDiagram
 | `major_id` | `SERIAL` | `PRIMARY KEY` | المعرف الفريد للتخصص. |
 | `major_name` | `VARCHAR(100)` | `UNIQUE, NOT NULL` | اسم التخصص. |
 
-#### 1.6. جدول المستويات (Levels)
+#### 1.6. جدول الفصول الدراسية (Semesters)
+
+| العمود (Field) | نوع البيانات (Data Type) | القيود (Constraints) | الوصف (Description) |
+| :--- | :--- | :--- | :--- |
+| `semester_id` | `SERIAL` | `PRIMARY KEY` | المعرف الفريد للفصل الدراسي. |
+| `name` | `VARCHAR(100)` | `UNIQUE, NOT NULL` | اسم الفصل الدراسي (e.g., "الفصل الأول 2025/2026"). |
+| `academic_year` | `VARCHAR(20)` | `NOT NULL` | العام الدراسي. |
+| `semester_number` | `INT` | `NOT NULL` | رقم الفصل (1 أو 2). |
+| `start_date` | `DATE` | `NOT NULL` | تاريخ بداية الفصل. |
+| `end_date` | `DATE` | `NOT NULL` | تاريخ نهاية الفصل. |
+| `is_current` | `BOOLEAN` | `DEFAULT FALSE` | يحدد ما إذا كان هذا هو الفصل الدراسي النشط حالياً. |
+
+#### 1.7. جدول المستويات (Levels)
 
 | العمود (Field) | نوع البيانات (Data Type) | القيود (Constraints) | الوصف (Description) |
 | :--- | :--- | :--- | :--- |
@@ -203,6 +227,7 @@ erDiagram
 | `course_code` | `VARCHAR(20)` | `UNIQUE` | رمز المقرر. |
 | `major_id` | `INT` | `NOT NULL, FK -> Majors.major_id` | التخصص الذي يتبعه المقرر. |
 | `level_id` | `INT` | `NOT NULL, FK -> Levels.level_id` | المستوى الذي يتبعه المقرر. |
+| `semester_id` | `INT` | `NOT NULL, FK -> Semesters.semester_id` | الفصل الدراسي الذي يتبعه المقرر. |
 
 #### 3.2. جدول ربط المدرسين بالمقررات (Instructor_Courses)
 
@@ -220,7 +245,8 @@ erDiagram
 | `course_id` | `INT` | `NOT NULL, FK -> Courses.course_id` | المقرر المرتبط بالملف. |
 | `uploader_id` | `INT` | `NOT NULL, FK -> Users.user_id` | المستخدم الذي رفع الملف. |
 | `title` | `VARCHAR(255)`| `NOT NULL` | عنوان الملف. |
-| `file_url` | `VARCHAR(512)`| `NOT NULL` | رابط الملف المخزن. |
+| `content_type` | `VARCHAR(20)` | `NOT NULL` | نوع المحتوى (local_file, external_link). |
+| `content_url` | `VARCHAR(512)`| `NOT NULL` | رابط الملف المحلي أو الرابط الخارجي. |
 | `file_type` | `VARCHAR(50)` | `NOT NULL` | نوع الملف (Lecture, Summary, Exam, etc.). |
 | `file_size` | `BIGINT` | - | حجم الملف بالبايت. |
 | `upload_date` | `TIMESTAMP` | `DEFAULT NOW()` | تاريخ ووقت الرفع. |

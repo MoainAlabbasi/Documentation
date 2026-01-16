@@ -19,7 +19,7 @@ erDiagram
             VARCHAR password_hash
             USER_STATUS account_status "(active, inactive)"
         INT role_id FK
-        INT major_id FK
+
         TIMESTAMP created_at
     }
 
@@ -45,14 +45,15 @@ erDiagram
 
     LEVELS {
         INT level_id PK
-        VARCHAR level_name UK
+                VARCHAR level_name UK
+        INT level_number UK
     }
 
     COURSES {
         INT course_id PK
         VARCHAR course_name
         VARCHAR course_code UK
-        INT major_id FK
+
                 INT level_id FK
         INT semester_id FK
     }
@@ -99,11 +100,16 @@ erDiagram
     }
 
     USERS ||--o{ ROLES : "has"
-    USERS ||--o{ MAJORS : "belongs to"
-    ROLES }o--o{ PERMISSIONS : "has"
+   COURSES }o--o{ COURSE_MAJORS : "links to"    ROLES }o--o{ PERMISSIONS : "has"
     PERMISSIONS }o--o{ ROLE_PERMISSIONS : "links to"
     ROLES }o--o{ ROLE_PERMISSIONS : "links to"
-    COURSES ||--o{ MAJORS : "belongs to"
+        COURSES }o--o{ COURSE_MAJORS : "links to"
+    MAJORS }o--o{ COURSE_MAJORS : "links to"
+
+    COURSE_MAJORS {
+        INT course_id PK, FK
+        INT major_id PK, FK
+    }
         COURSES ||--o{ LEVELS : "belongs to"
     COURSES ||--o{ SEMESTERS : "belongs to"
 
@@ -146,6 +152,7 @@ erDiagram
 | `account_status` | `VARCHAR(20)` | `DEFAULT 'inactive'` | حالة الحساب (inactive, active). |
 | `role_id` | `INT` | `FK -> Roles.role_id` | يحدد دور المستخدم في النظام. |
 | `major_id` | `INT` | `FK -> Majors.major_id` | يحدد تخصص الطالب (يمكن أن يكون NULL للمدرسين والمدراء). |
+| `level_id` | `INT` | `FK -> Levels.level_id` | يحدد مستوى الطالب الحالي. |
 | `created_at` | `TIMESTAMP` | `DEFAULT NOW()` | تاريخ ووقت إنشاء الحساب. |
 
 #### 1.2. جدول الأدوار (Roles)
@@ -195,6 +202,7 @@ erDiagram
 | :--- | :--- | :--- | :--- |
 | `level_id` | `SERIAL` | `PRIMARY KEY` | المعرف الفريد للمستوى. |
 | `level_name` | `VARCHAR(50)` | `UNIQUE, NOT NULL` | اسم المستوى (e.g., "المستوى الأول"). |
+| `level_number` | `INT` | `UNIQUE, NOT NULL` | رقم المستوى (1, 2, 3, 4). |
 
 ### المجموعة 2: آليات التحقق والأمان
 
@@ -225,11 +233,18 @@ erDiagram
 | `course_id` | `SERIAL` | `PRIMARY KEY` | المعرف الفريد للمقرر. |
 | `course_name` | `VARCHAR(150)`| `NOT NULL` | اسم المقرر. |
 | `course_code` | `VARCHAR(20)` | `UNIQUE` | رمز المقرر. |
-| `major_id` | `INT` | `NOT NULL, FK -> Majors.major_id` | التخصص الذي يتبعه المقرر. |
+
 | `level_id` | `INT` | `NOT NULL, FK -> Levels.level_id` | المستوى الذي يتبعه المقرر. |
 | `semester_id` | `INT` | `NOT NULL, FK -> Semesters.semester_id` | الفصل الدراسي الذي يتبعه المقرر. |
 
-#### 3.2. جدول ربط المدرسين بالمقررات (Instructor_Courses)
+#### 3.2. جدول ربط المقررات بالتخصصات (Course_Majors)
+
+| العمود (Field) | نوع البيانات (Data Type) | القيود (Constraints) | الوصف (Description) |
+| :--- | :--- | :--- | :--- |
+| `course_id` | `INT` | `PK, FK -> Courses.course_id` | معرف المقرر. |
+| `major_id` | `INT` | `PK, FK -> Majors.major_id` | معرف التخصص. |
+
+#### 3.3. جدول ربط المدرسين بالمقررات (Instructor_Courses)
 
 | العمود (Field) | نوع البيانات (Data Type) | القيود (Constraints) | الوصف (Description) |
 | :--- | :--- | :--- | :--- |

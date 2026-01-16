@@ -33,9 +33,12 @@
 الالتزام الصارم بالمكدس التقني التالي هو أساس لضمان الجودة والاتساق:
 
 - **الخلفية (Backend):** Django 5.x (Python)
+- **المنطق المعماري:** MVT (Model-View-Template)
 - **قاعدة البيانات (Database):** PostgreSQL
 - **الواجهة الأمامية (Frontend):** Bootstrap 5 + HTMX
+- **نظام التشغيل:** Windows (PowerShell/CMD) - **بيئة التطوير الإلزامية**
 - **الذكاء الاصطناعي (AI):** Google Gemini API
+- **الذاكرة المركزية:** [SYSTEM_OVERVIEW.md](SYSTEM_OVERVIEW.md) - **يجب قراءته أولاً**
 
 > **📍 للتفاصيل الكاملة:** راجع ملف [Architecture/TECH_STACK.md](Architecture/TECH_STACK.md)
 

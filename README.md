@@ -119,7 +119,8 @@ Documentation/
 | المستودع | الغرض | الرابط |
 | :--- | :--- | :--- |
 | **Documentation** | التوثيق وذاكرة المشروع | [هذا المستودع](https://github.com/MoainAlabbasi/Documentation) |
-| **S_ACM_V1** | الكود المصدري | [S_ACM_V1](https://github.com/MoainAlabbasi/S_ACM_V1) ✅ |
+| **ProjectSCAM** | الكود المصدري (النسخة الرئيسية) | [ProjectSCAM](https://github.com/MoainAlabbasi/ProjectSCAM) ✅ |
+| **S_ACM_V1** | الكود المصدري (نسخة قديمة) | [S_ACM_V1](https://github.com/MoainAlabbasi/S_ACM_V1) |
 
 ---
 
@@ -144,5 +145,5 @@ Documentation/
 
 ## 📅 آخر تحديث
 
-**التاريخ:** 2026-01-09
-**التغييرات:** إكمال المرحلة 0، إضافة مستودع الكود S_ACM_V1، إضافة مجلد Troubleshooting
+**التاريخ:** 2026-01-18
+**التغييرات:** إضافة مستودع الكود الرئيسي الجديد ProjectSCAM

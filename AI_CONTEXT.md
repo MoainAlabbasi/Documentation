@@ -51,3 +51,12 @@
 3.  **اتبع الخارطة:** التزم بخارطة الطريق المحددة في `Plans/Project_Roadmap.md` وقائمة المهام في `Progress/TODO.md`.
 4.  **الالتزام بالهيكل:** حافظ على هيكل المستودع الحالي. أي ملفات جديدة يجب أن توضع في المجلد المناسب لها.
 5.  **اسأل عند الغموض:** إذا واجهت غموضاً في المتطلبات لم تتم تغطيته في التحليل، استخدم أداة `message` لطرح سؤال واضح ومحدد.
+
+---
+
+## 🔗 المستودعات المرتبطة (Related Repositories)
+
+| المستودع | الغرض | الرابط |
+| :--- | :--- | :--- |
+| **Documentation** | التوثيق وذاكرة المشروع (هذا المستودع) | [Documentation](https://github.com/MoainAlabbasi/Documentation) |
+| **ProjectSCAM** | الكود المصدري الرئيسي | [ProjectSCAM](https://github.com/MoainAlabbasi/ProjectSCAM) ✅ |
